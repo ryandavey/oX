@@ -9,6 +9,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
+                <outlet property="Square1Button" destination="Lgl-eZ-ME1" id="c5S-ja-S8w"/>
+                <outlet property="Square2Button" destination="N6c-yA-Xo4" id="fjh-J7-ffe"/>
+                <outlet property="Square3Button" destination="ouQ-ap-EjW" id="1ZW-s1-HmG"/>
+                <outlet property="Square4Button" destination="KpC-Ia-fSQ" id="Mci-ap-DdU"/>
+                <outlet property="Square5Button" destination="Uv9-k9-j6J" id="JM5-7S-oE8"/>
+                <outlet property="Square6Button" destination="l4o-we-hNW" id="LpO-Tc-mDW"/>
+                <outlet property="Square7Button" destination="wqL-6N-dzo" id="ge8-9u-DTj"/>
+                <outlet property="Square8Button" destination="5oJ-IG-Rbw" id="nUo-lK-v9M"/>
+                <outlet property="Square9Button" destination="98z-PQ-N63" id="dZT-m3-7Me"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

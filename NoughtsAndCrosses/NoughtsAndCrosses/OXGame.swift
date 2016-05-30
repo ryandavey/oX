@@ -24,6 +24,7 @@ class OXGame {
         case EMPTY = ""
     }
     
+    //declares cases for game types
     enum OXGameState:String {
         case inProgress
         case complete_no_one_won
@@ -32,9 +33,11 @@ class OXGame {
     
     private var count:Int = 0
     
+    // updates number of turns
     func turn() -> Int {
         return count
     }
+    // returns whether X or O turn to move
     func whosTurn() -> CellType {
         if count % 2 == 0 {
            return CellType.X
@@ -43,14 +46,18 @@ class OXGame {
             return CellType.O
         }
     }
+    
+    // returns type in specifc cell
     func typeIndex(cell: Int) -> CellType {
         return board[cell]
     }
+    // increments number of turns and changes player to move
     func playMove(cell: Int) -> CellType {
         board[cell] = whosTurn()
         count += 1
         return board[cell]
     }
+    // detects whether 3 cells in a row/column/diagonal are the same
     func winDetection() -> Bool {
            // sideways
         if ((board[0] == board[1]) && (board[1] == board[2]) && (board[0] != CellType.EMPTY) ||
@@ -69,26 +76,23 @@ class OXGame {
             return false
         }
     }
+    // updates game state based on win detection and number of turns completed
     func state() -> OXGameState {
         if winDetection() {
             return OXGameState.complete_someone_won
         }
-        else if count == max_turns {
+        else if (!winDetection()) && (count == max_turns) {
             return OXGameState.complete_no_one_won
         }
         else {
             return OXGameState.inProgress
         }
     }
-    
+    // resets the board to 9 blank squares
     func reset() {
-        //board.map(CellType.EMPTY)
-        //board = [CellType](count: max_turns, repeatedValue : CellType.EMPTY)
-        
         for cell in 0...8 {
             board[cell] = CellType.EMPTY
         }
     }
-    
     
 }
