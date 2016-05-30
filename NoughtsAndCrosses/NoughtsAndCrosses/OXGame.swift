@@ -8,12 +8,12 @@
 
 import Foundation
 
-
+private let max_turns = 9
 
 class OXGame {
     
     // create empty board
-    private var board = [CellType](count: 9, repeatedValue : CellType.EMPTY)
+    private var board = [CellType](count: max_turns, repeatedValue : CellType.EMPTY)
     
     private var startType = CellType.X
     
@@ -35,9 +35,6 @@ class OXGame {
     func turn() -> Int {
         return count
     }
-    func playMove() {
-        count++
-    }
     func whosTurn() -> CellType {
         if count % 2 == 0 {
            return CellType.X
@@ -45,7 +42,53 @@ class OXGame {
         else {
             return CellType.O
         }
-        
     }
+    func typeIndex(cell: Int) -> CellType {
+        return board[cell]
+    }
+    func playMove(cell: Int) -> CellType {
+        board[cell] = whosTurn()
+        count += 1
+        return board[cell]
+    }
+    func winDetection() -> Bool {
+           // sideways
+        if ((board[0] == board[1]) && (board[1] == board[2]) ||
+           (board[3] == board[4]) && (board[4] == board[5]) ||
+           (board[6] == board[7]) && (board[7] == board[8]) ||
+           // vertical
+           (board[0] == board[3]) && (board[3] == board[6]) ||
+           (board[1] == board[4]) && (board[4] == board[7]) ||
+           (board[2] == board[5]) && (board[5] == board[8]) ||
+           // diagonal
+           (board[0] == board[4]) && (board[4] == board[8]) ||
+           (board[6] == board[4]) && (board[4] == board[2]) ){
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    func state() -> OXGameState {
+        if winDetection() {
+            return OXGameState.complete_someone_won
+        }
+        else if count == max_turns {
+            return OXGameState.complete_no_one_won
+        }
+        else {
+            return OXGameState.inProgress
+        }
+    }
+    
+    func reset() {
+        //board.map(CellType.EMPTY)
+        //board = [CellType](count: max_turns, repeatedValue : CellType.EMPTY)
+        
+        for cell in 0...8 {
+            board[cell] = CellType.EMPTY
+        }
+    }
+    
     
 }
