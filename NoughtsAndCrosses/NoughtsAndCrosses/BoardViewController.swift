@@ -12,8 +12,17 @@ class BoardViewController: UIViewController {
     
     var gameObject:OXGame = OXGame()
     
+    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    @IBAction func logoutButtonTapped(sender: AnyObject) {
+        let lvc = LandingViewController(nibName: "LandingViewController",bundle:nil)
+        self.navigationController?.pushViewController(lvc,animated:true)
+    }
+    
+    
     // All outlets
     @IBOutlet weak var BoardView: UIView!
+   
     // Creates outlets for each individual square
     @IBOutlet weak var Square1Button: UIButton!
     @IBOutlet weak var Square2Button: UIButton!

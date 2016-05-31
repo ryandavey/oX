@@ -13,21 +13,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
-
+    var authorisationNavigationController:UINavigationController?
+    var loggedInNavigationController:UINavigationController?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
-        self.navigationController = UINavigationController(rootViewController: boardViewController)
-        self.navigationController?.navigationBarHidden = true
-        
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.navigationController
-        self.window?.makeKeyAndVisible()
-        
-        
-        
-        return true
+            
+            let landingViewController = LandingViewController(nibName: "LandingViewController", bundle:nil)
+            authorisationNavigationController = UINavigationController(rootViewController:landingViewController)
+            
+            let loggedInViewController = BoardViewController(nibName: "LoggedInViewController", bundle:nil)
+            loggedInNavigationController = UINavigationController(rootViewController: loggedInViewController)
+            
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            self.window?.rootViewController = self.authorisationNavigationController
+            self.window?.makeKeyAndVisible()
+            
+            return true
+    }
+    
+    func navigateToLoggedInNavigationController () {
+        self.window?.rootViewController = self.loggedInNavigationController
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -51,7 +57,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 

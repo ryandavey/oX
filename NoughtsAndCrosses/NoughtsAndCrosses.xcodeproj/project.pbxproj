@@ -13,6 +13,13 @@
 		42D447E31CD765680070326E /* NoughtsAndCrossesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447E21CD765680070326E /* NoughtsAndCrossesTests.swift */; };
 		42D447EE1CD765680070326E /* NoughtsAndCrossesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */; };
 		D9FDBD6D1CFCDFF000A7F6DF /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDBD6C1CFCDFF000A7F6DF /* OXGame.swift */; };
+		D9FDBE031CFE32AA00A7F6DF /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDBE011CFE32AA00A7F6DF /* LandingViewController.swift */; };
+		D9FDBE041CFE32AA00A7F6DF /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9FDBE021CFE32AA00A7F6DF /* LandingViewController.xib */; };
+		D9FDBE071CFE330900A7F6DF /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDBE051CFE330900A7F6DF /* RegistrationViewController.swift */; };
+		D9FDBE081CFE330900A7F6DF /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9FDBE061CFE330900A7F6DF /* RegistrationViewController.xib */; };
+		D9FDBE0B1CFE332700A7F6DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDBE091CFE332700A7F6DF /* LoginViewController.swift */; };
+		D9FDBE0C1CFE332700A7F6DF /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9FDBE0A1CFE332700A7F6DF /* LoginViewController.xib */; };
+		D9FDBE121CFE33BF00A7F6DF /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDBE111CFE33BF00A7F6DF /* UserController.swift */; };
 		FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDE70821CF87AD00025275C /* BoardViewController.swift */; };
 		FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDE70831CF87AD00025275C /* BoardViewController.xib */; };
 /* End PBXBuildFile section */
@@ -47,6 +54,13 @@
 		42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesUITests.swift; sourceTree = "<group>"; };
 		42D447EF1CD765680070326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9FDBD6C1CFCDFF000A7F6DF /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
+		D9FDBE011CFE32AA00A7F6DF /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		D9FDBE021CFE32AA00A7F6DF /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
+		D9FDBE051CFE330900A7F6DF /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		D9FDBE061CFE330900A7F6DF /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		D9FDBE091CFE332700A7F6DF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D9FDBE0A1CFE332700A7F6DF /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		D9FDBE111CFE33BF00A7F6DF /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		FBDE70821CF87AD00025275C /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		FBDE70831CF87AD00025275C /* BoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +128,13 @@
 				42D447D61CD765670070326E /* LaunchScreen.storyboard */,
 				42D447D91CD765670070326E /* Info.plist */,
 				427A5B651CE0FF4A00328EE7 /* Model */,
+				D9FDBE011CFE32AA00A7F6DF /* LandingViewController.swift */,
+				D9FDBE021CFE32AA00A7F6DF /* LandingViewController.xib */,
+				D9FDBE051CFE330900A7F6DF /* RegistrationViewController.swift */,
+				D9FDBE061CFE330900A7F6DF /* RegistrationViewController.xib */,
+				D9FDBE091CFE332700A7F6DF /* LoginViewController.swift */,
+				D9FDBE0A1CFE332700A7F6DF /* LoginViewController.xib */,
+				D9FDBE111CFE33BF00A7F6DF /* UserController.swift */,
 			);
 			path = NoughtsAndCrosses;
 			sourceTree = "<group>";
@@ -240,8 +261,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9FDBE081CFE330900A7F6DF /* RegistrationViewController.xib in Resources */,
 				42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */,
+				D9FDBE0C1CFE332700A7F6DF /* LoginViewController.xib in Resources */,
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
+				D9FDBE041CFE32AA00A7F6DF /* LandingViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,9 +291,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9FDBE0B1CFE332700A7F6DF /* LoginViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
 				D9FDBD6D1CFCDFF000A7F6DF /* OXGame.swift in Sources */,
+				D9FDBE031CFE32AA00A7F6DF /* LandingViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
+				D9FDBE121CFE33BF00A7F6DF /* UserController.swift in Sources */,
+				D9FDBE071CFE330900A7F6DF /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

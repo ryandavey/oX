@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
+                <outlet property="BoardView" destination="i5M-Pr-FkT" id="biO-oR-b3L"/>
                 <outlet property="Square1Button" destination="Lgl-eZ-ME1" id="c5S-ja-S8w"/>
                 <outlet property="Square2Button" destination="N6c-yA-Xo4" id="fjh-J7-ffe"/>
                 <outlet property="Square3Button" destination="ouQ-ap-EjW" id="1ZW-s1-HmG"/>
@@ -414,6 +415,15 @@
                     </variation>
                     <connections>
                         <action selector="NewGameCreated:" destination="-1" eventType="touchUpInside" id="NUC-Cx-Bju"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfK-0I-lhD">
+                    <rect key="frame" x="63" y="560" width="66" height="30"/>
+                    <state key="normal" title="Logout">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="logoutButtonTapped:" destination="-1" eventType="touchUpInside" id="q3c-kj-a3I"/>
                     </connections>
                 </button>
             </subviews>
