@@ -22,11 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let landingViewController = LandingViewController(nibName: "LandingViewController", bundle:nil)
             authorisationNavigationController = UINavigationController(rootViewController:landingViewController)
             
-            let loggedInViewController = BoardViewController(nibName: "LoggedInViewController", bundle:nil)
+            let loggedInViewController = BoardViewController(nibName: "BoardViewController", bundle:nil)
             loggedInNavigationController = UINavigationController(rootViewController: loggedInViewController)
             
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            self.window?.rootViewController = self.authorisationNavigationController
+            self.window?.rootViewController = self.authorisationNavigationController //was authorisationNavigationController
             self.window?.makeKeyAndVisible()
             
             return true
@@ -35,6 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func navigateToLoggedInNavigationController () {
         self.window?.rootViewController = self.loggedInNavigationController
     }
+    func navigateToAuthorisationNavigationController () {
+        self.authorisationNavigationController?.popToRootViewControllerAnimated(false)
+        self.window?.rootViewController = self.authorisationNavigationController
+    }
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
