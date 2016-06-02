@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var navigationController: UINavigationController?
     var authorisationNavigationController:UINavigationController?
     var loggedInNavigationController:UINavigationController?
+    var easterEggNavigationController:UINavigationController?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -24,11 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let loggedInViewController = BoardViewController(nibName: "BoardViewController", bundle:nil)
             loggedInNavigationController = UINavigationController(rootViewController: loggedInViewController)
-            
+        
+            let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
+            easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
+        
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            self.window?.rootViewController = self.authorisationNavigationController //was authorisationNavigationController
+            self.window?.rootViewController = self.authorisationNavigationController 
             self.window?.makeKeyAndVisible()
-            
+            EasterEggController.sharedInstance.initiate(self.window!)
+        
             return true
     }
     
@@ -39,7 +44,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.authorisationNavigationController?.popToRootViewControllerAnimated(false)
         self.window?.rootViewController = self.authorisationNavigationController
     }
-
+    
+    func navigateToEasterEggNavigationController () {
+        
+    }
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

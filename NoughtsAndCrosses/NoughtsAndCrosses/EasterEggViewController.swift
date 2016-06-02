@@ -8,12 +8,28 @@
 
 import UIKit
 
-class EasterEggViewController: UIViewController {
-
+class EasterEggViewController: UIViewController, UIGestureRecognizerDelegate {
+    
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let imageName1 = "image2.jpg"
+        let image1 = UIImage(named: imageName1)
+        let imageName2 = "image3.jpeg"
+        let image2 = UIImage(named: imageName2)
+        let imageName3 = "image1.jpg"
+        let image3 = UIImage(named: imageName3)
+        
+        imageView.animationImages = [image1!, image2!, image3!]
+        imageView.animationDuration = 1
+        imageView.startAnimating()
+        
+    }
+    @IBAction func oXGameButton(sender: AnyObject) {
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.navigateToLoggedInNavigationController()
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +37,7 @@ class EasterEggViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+   
 
     /*
     // MARK: - Navigation

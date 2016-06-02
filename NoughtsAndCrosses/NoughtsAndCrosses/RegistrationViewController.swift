@@ -32,7 +32,7 @@ class RegistrationViewController: UIViewController {
         let email = emailField.text
         let password = passwordField.text
         
-        if !(emailField.validate()) {
+        if (emailField.validate()) {
             let (failure_message, user) = UserController.sharedInstance.registerUser(email!,newPassword:password!)
             if user != nil {
                 let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
