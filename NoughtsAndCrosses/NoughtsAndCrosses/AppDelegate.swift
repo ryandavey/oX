@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let loggedInViewController = BoardViewController(nibName: "BoardViewController", bundle:nil)
             loggedInNavigationController = UINavigationController(rootViewController: loggedInViewController)
         
-            let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
+            let easterEggViewController = EasterEggViewController(nibName:"EasterEggViewController", bundle: nil)
             easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
         
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func navigateToEasterEggNavigationController () {
-        
+        self.window?.rootViewController = self.easterEggNavigationController
     }
     
 

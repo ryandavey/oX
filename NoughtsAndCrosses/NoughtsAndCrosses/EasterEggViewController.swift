@@ -22,7 +22,7 @@ class EasterEggViewController: UIViewController, UIGestureRecognizerDelegate {
         let image3 = UIImage(named: imageName3)
         
         imageView.animationImages = [image1!, image2!, image3!]
-        imageView.animationDuration = 1
+        imageView.animationDuration = 3
         imageView.startAnimating()
         
     }
