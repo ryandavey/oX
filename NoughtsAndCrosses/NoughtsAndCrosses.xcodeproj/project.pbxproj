@@ -27,6 +27,9 @@
 		D9FDBE231CFFB63B00A7F6DF /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9FDBE201CFFB63B00A7F6DF /* image1.jpg */; };
 		D9FDBE241CFFB63B00A7F6DF /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9FDBE211CFFB63B00A7F6DF /* image2.jpg */; };
 		D9FDBE251CFFB63B00A7F6DF /* image3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D9FDBE221CFFB63B00A7F6DF /* image3.jpeg */; };
+		D9FDBE281D016FF200A7F6DF /* NetworkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDBE261D016FF200A7F6DF /* NetworkPlayViewController.swift */; };
+		D9FDBE291D016FF200A7F6DF /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9FDBE271D016FF200A7F6DF /* NetworkPlayViewController.xib */; };
+		D9FDBE2D1D01C5FE00A7F6DF /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDBE2C1D01C5FE00A7F6DF /* OXGameController.swift */; };
 		FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDE70821CF87AD00025275C /* BoardViewController.swift */; };
 		FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDE70831CF87AD00025275C /* BoardViewController.xib */; };
 /* End PBXBuildFile section */
@@ -72,9 +75,12 @@
 		D9FDBE181CFF56C100A7F6DF /* EasterEggViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggViewController.swift; sourceTree = "<group>"; };
 		D9FDBE191CFF56C100A7F6DF /* EasterEggViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasterEggViewController.xib; sourceTree = "<group>"; };
 		D9FDBE1C1CFF56FD00A7F6DF /* EasterEggController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggController.swift; sourceTree = "<group>"; };
-		D9FDBE201CFFB63B00A7F6DF /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image1.jpg; path = ../../../Desktop/image1.jpg; sourceTree = "<group>"; };
-		D9FDBE211CFFB63B00A7F6DF /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image2.jpg; path = ../../../Desktop/image2.jpg; sourceTree = "<group>"; };
-		D9FDBE221CFFB63B00A7F6DF /* image3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image3.jpeg; path = ../../../Desktop/image3.jpeg; sourceTree = "<group>"; };
+		D9FDBE201CFFB63B00A7F6DF /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image1.jpg; path = ../../../../Desktop/image1.jpg; sourceTree = "<group>"; };
+		D9FDBE211CFFB63B00A7F6DF /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image2.jpg; path = ../../../../Desktop/image2.jpg; sourceTree = "<group>"; };
+		D9FDBE221CFFB63B00A7F6DF /* image3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image3.jpeg; path = ../../../../Desktop/image3.jpeg; sourceTree = "<group>"; };
+		D9FDBE261D016FF200A7F6DF /* NetworkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlayViewController.swift; sourceTree = "<group>"; };
+		D9FDBE271D016FF200A7F6DF /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
+		D9FDBE2C1D01C5FE00A7F6DF /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
 		FBDE70821CF87AD00025275C /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		FBDE70831CF87AD00025275C /* BoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,22 +110,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		427A5B651CE0FF4A00328EE7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D9FDBD6C1CFCDFF000A7F6DF /* OXGame.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		42D447C11CD765670070326E = {
 			isa = PBXGroup;
 			children = (
 				42D447CC1CD765670070326E /* NoughtsAndCrosses */,
 				D9FDBE171CFF569500A7F6DF /* EasterEgg */,
-				D9FDBE201CFFB63B00A7F6DF /* image1.jpg */,
-				D9FDBE211CFFB63B00A7F6DF /* image2.jpg */,
-				D9FDBE221CFFB63B00A7F6DF /* image3.jpeg */,
 				42D447E11CD765680070326E /* NoughtsAndCrossesTests */,
 				42D447EC1CD765680070326E /* NoughtsAndCrossesUITests */,
 				42D447CB1CD765670070326E /* Products */,
@@ -139,16 +134,14 @@
 		42D447CC1CD765670070326E /* NoughtsAndCrosses */ = {
 			isa = PBXGroup;
 			children = (
+				D9FDBE2B1D018AB700A7F6DF /* Screens */,
+				D9FDBE2A1D0189FB00A7F6DF /* ModelControllers */,
 				D9FDBE161CFF556D00A7F6DF /* Authentication */,
 				D9FDBE151CFF554E00A7F6DF /* LoggedIn */,
-				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
-				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
 				42D447D41CD765670070326E /* Assets.xcassets */,
 				42D447D61CD765670070326E /* LaunchScreen.storyboard */,
 				42D447D91CD765670070326E /* Info.plist */,
-				427A5B651CE0FF4A00328EE7 /* Model */,
 				42D447CD1CD765670070326E /* AppDelegate.swift */,
-				D9FDBE111CFE33BF00A7F6DF /* UserController.swift */,
 				D9FDBE131CFEE54A00A7F6DF /* EmailValidatedTextField.swift */,
 			);
 			path = NoughtsAndCrosses;
@@ -198,9 +191,33 @@
 				D9FDBE181CFF56C100A7F6DF /* EasterEggViewController.swift */,
 				D9FDBE191CFF56C100A7F6DF /* EasterEggViewController.xib */,
 				D9FDBE1C1CFF56FD00A7F6DF /* EasterEggController.swift */,
+				D9FDBE201CFFB63B00A7F6DF /* image1.jpg */,
+				D9FDBE211CFFB63B00A7F6DF /* image2.jpg */,
+				D9FDBE221CFFB63B00A7F6DF /* image3.jpeg */,
 			);
 			name = EasterEgg;
 			path = NoughtsAndCrosses;
+			sourceTree = "<group>";
+		};
+		D9FDBE2A1D0189FB00A7F6DF /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D9FDBD6C1CFCDFF000A7F6DF /* OXGame.swift */,
+				D9FDBE111CFE33BF00A7F6DF /* UserController.swift */,
+				D9FDBE2C1D01C5FE00A7F6DF /* OXGameController.swift */,
+			);
+			name = ModelControllers;
+			sourceTree = "<group>";
+		};
+		D9FDBE2B1D018AB700A7F6DF /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				D9FDBE261D016FF200A7F6DF /* NetworkPlayViewController.swift */,
+				D9FDBE271D016FF200A7F6DF /* NetworkPlayViewController.xib */,
+				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
+				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
+			);
+			name = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +327,7 @@
 			files = (
 				D9FDBE081CFE330900A7F6DF /* RegistrationViewController.xib in Resources */,
 				42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */,
+				D9FDBE291D016FF200A7F6DF /* NetworkPlayViewController.xib in Resources */,
 				D9FDBE0C1CFE332700A7F6DF /* LoginViewController.xib in Resources */,
 				D9FDBE1B1CFF56C100A7F6DF /* EasterEggViewController.xib in Resources */,
 				D9FDBE241CFFB63B00A7F6DF /* image2.jpg in Resources */,
@@ -349,8 +367,10 @@
 				D9FDBD6D1CFCDFF000A7F6DF /* OXGame.swift in Sources */,
 				D9FDBE031CFE32AA00A7F6DF /* LandingViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
+				D9FDBE281D016FF200A7F6DF /* NetworkPlayViewController.swift in Sources */,
 				D9FDBE121CFE33BF00A7F6DF /* UserController.swift in Sources */,
 				D9FDBE071CFE330900A7F6DF /* RegistrationViewController.swift in Sources */,
+				D9FDBE2D1D01C5FE00A7F6DF /* OXGameController.swift in Sources */,
 				D9FDBE141CFEE54A00A7F6DF /* EmailValidatedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

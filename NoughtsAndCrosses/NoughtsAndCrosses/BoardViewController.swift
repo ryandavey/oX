@@ -10,6 +10,8 @@ import UIKit
 
 class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    var networkGame = false
+    
     // variable for starting rotation
     var lastSnap = CGFloat(0)
     
@@ -17,13 +19,31 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+        if (networkGame) {
+            logoutButton.setTitle("Cancel Game", forState: .Normal)
+            newGameButton.hidden = true
+            networkPlay.hidden = true
+        }
+    }
+    
     @IBAction func logoutButtonTapped(sender: AnyObject) {
-        appDelegate.navigateToAuthorisationNavigationController()
+        if (networkGame) {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        else {
+            appDelegate.navigateToAuthorisationNavigationController()
+        }
+        
+        
     }
     
     // All outlets
     @IBOutlet weak var BoardView: UIView!
    
+    @IBOutlet weak var logoutButton: UIButton!
+    
     // Creates outlets for each individual square
     @IBOutlet weak var Square1Button: UIButton!
     @IBOutlet weak var Square2Button: UIButton!
@@ -35,6 +55,15 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var Square8Button: UIButton!
     @IBOutlet weak var Square9Button: UIButton!
     
+    // Outlet for network play button
+    @IBOutlet weak var networkPlay: UIButton!
+    
+    // Changes to NetworkPlay View Controller
+    @IBAction func networkPlayTapped(sender: UIButton) {
+        let npc = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
+        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.pushViewController(npc, animated: true)
+    }   
     
     // Outlets for grid buttons
     @IBAction func GridButtonPushed(sender: AnyObject) {
@@ -47,14 +76,14 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         var game = 0
         
         // checks if the player who last made the turn won, or if the game ended in a tie/is still ongoing
-        if gameState == OXGame.OXGameState.complete_someone_won {
+        if gameState == OXGameState.complete_someone_won {
             print("Congratulations " + String(gameObject.typeIndex(sender.tag)) + ", you won!")
             game += 1
             if game == 1 {
                 restartGame()
             }
         }
-        else if gameState == OXGame.OXGameState.complete_no_one_won {
+        else if gameState == OXGameState.complete_no_one_won {
             print("The game was tied")
             restartGame()
         }
@@ -64,9 +93,11 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // New Game button is pressed
-    @IBAction func NewGameCreated(sender: AnyObject) {
-        restartGame()
+    @IBAction func newGameButton(sender: UIButton) {
     }
+    
+    @IBOutlet weak var newGameButton: UIButton!
+   
     
     // function that restarts game and sets the individual squares to blank
     func restartGame(){
@@ -109,6 +140,9 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         }
     }
+    
+    
+    
 }
 //            if (sender!.rotation < CGFLoat(M_PI/4) {
 //            // snap action

@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct User {
+    var email: String
+    var password: String
+}
+
 class UserController {
     // Singleton design pattern
     class var sharedInstance: UserController {
@@ -20,11 +25,6 @@ class UserController {
             Static.instance = UserController()
         }
         return Static.instance!
-    }
-    
-    struct User {
-        var email: String
-        var password: String
     }
     
     private var users: [User] = []
@@ -59,4 +59,23 @@ class UserController {
         
         return ("No user with that email", nil)
     }
+    
+    func storeUser(user:User) {
+        
+        NSUserDefaults.standardUserDefaults().setObject(user.password, forKey: "\(user.email)")
+        
+    }
+    
+    func getStoredUser(id:String) -> User? {
+        
+        if let userPassword:String = NSUserDefaults.standardUserDefaults().stringForKey(id) {
+            //user found
+            let user = User(email: id, password: userPassword)
+            return user
+        } else {
+            //else user not found
+            return nil
+        }
+    }
 }
+

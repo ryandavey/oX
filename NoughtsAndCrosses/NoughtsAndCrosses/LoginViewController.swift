@@ -33,10 +33,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if !(emailField.validate()) {
 
         let (failure_message, user) = UserController.sharedInstance.loginUser(email!,suppliedPassword:password!)
-        if user != nil {
+        if let _ = user {
+            print("User logged in ")
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
             appDelegate.navigateToLoggedInNavigationController()
-            print("User log view login view")
+            
         }
         else if failure_message != nil {
             print(failure_message)
@@ -44,6 +46,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     }
     
+        
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if textField == emailField{
             print(string)

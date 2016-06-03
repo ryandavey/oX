@@ -19,18 +19,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-            
-            let landingViewController = LandingViewController(nibName: "LandingViewController", bundle:nil)
-            authorisationNavigationController = UINavigationController(rootViewController:landingViewController)
-            
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
+        
+        if let loggedIn = userIsLoggedIn {
             let loggedInViewController = BoardViewController(nibName: "BoardViewController", bundle:nil)
             loggedInNavigationController = UINavigationController(rootViewController: loggedInViewController)
+            self.window?.rootViewController = self.loggedInNavigationController
+            //self.navigationController
+        } else {
+            let landingViewController = LandingViewController(nibName: "LandingViewController", bundle:nil)
+            authorisationNavigationController = UINavigationController(rootViewController:landingViewController)
+            self.window?.rootViewController = self.authorisationNavigationController
+        }
         
             let easterEggViewController = EasterEggViewController(nibName:"EasterEggViewController", bundle: nil)
             easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
         
-            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            self.window?.rootViewController = self.authorisationNavigationController 
+        
             self.window?.makeKeyAndVisible()
             EasterEggController.sharedInstance.initiate(self.window!)
         

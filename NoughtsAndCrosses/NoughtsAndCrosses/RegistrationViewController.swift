@@ -33,14 +33,17 @@ class RegistrationViewController: UIViewController {
         let password = passwordField.text
         
         if (emailField.validate()) {
-            let (failure_message, user) = UserController.sharedInstance.registerUser(email!,newPassword:password!)
-            if user != nil {
+            let (failureMessage, user) = UserController.sharedInstance.registerUser(email!,newPassword:password!)
+            if let _ = user {
+                print("User registered")
                 let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
                 appDelegate.navigateToLoggedInNavigationController()
-                print("User registered view registration view")
+                
             }
-            else if failure_message != nil {
-                print(failure_message)
+            else
+              if let message = failureMessage {
+                print("Failed to gester user: \(message)")
             }
         }
         

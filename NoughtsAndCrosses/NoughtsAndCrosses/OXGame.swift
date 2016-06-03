@@ -10,26 +10,33 @@ import Foundation
 
 private let max_turns = 9
 
+    // declare cases for cell types
+enum CellType:String {
+    case O = "O"
+    case X = "X"
+    case EMPTY = ""
+}
+
+//declares cases for game types
+enum OXGameState:String {
+    case inProgress
+    case complete_no_one_won
+    case complete_someone_won
+}
+
 class OXGame {
     
+    var hostUser: User?
+    var guestUser: User?
+    
+    var backendState: OXGameState?
+    
+    var gameId: String?
+    
     // create empty board
-    private var board = [CellType](count: max_turns, repeatedValue : CellType.EMPTY)
+    var board = [CellType](count: max_turns, repeatedValue : CellType.EMPTY)
     
     private var startType = CellType.X
-    
-    // declare cases for cell types
-    enum CellType:String {
-        case O = "O"
-        case X = "X"
-        case EMPTY = ""
-    }
-    
-    //declares cases for game types
-    enum OXGameState:String {
-        case inProgress
-        case complete_no_one_won
-        case complete_someone_won
-    }
     
     private var count:Int = 0
     

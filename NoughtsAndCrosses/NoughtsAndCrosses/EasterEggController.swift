@@ -30,8 +30,11 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         board.addGestureRecognizer(longpress)
         let swipe: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
         board.addGestureRecognizer(swipe)
+        swipe.direction = UISwipeGestureRecognizerDirection.Down
         let twofingerswipe: UISwipeGestureRecognizer = UISwipeGestureRecognizer (target: self, action: "handleTwoFingerSwipe")
         board.addGestureRecognizer(twofingerswipe)
+        twofingerswipe.numberOfTouchesRequired == 2
+        twofingerswipe.direction = UISwipeGestureRecognizerDirection.Down
     }
     
     func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
@@ -54,16 +57,10 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
             print("long press detected")
     }
     func handleSwipe(sender: UISwipeGestureRecognizer? = nil) {
-        if (sender?.direction == UISwipeGestureRecognizerDirection.Down) {
             print("right swipe detected")
-        }
     }
     func handleTwoFingerSwipe(sender: UISwipeGestureRecognizer? = nil) {
-        if sender?.numberOfTouchesRequired == 2 {
-            if sender?.direction == UISwipeGestureRecognizerDirection.Down {
-                print("two finger swipe detected")
-            }
-        }
+            print("two finger swipe detected")
     }
     
     //Allow to recognize multiple gestures of the same type

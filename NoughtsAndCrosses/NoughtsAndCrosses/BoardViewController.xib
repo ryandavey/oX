@@ -19,6 +19,9 @@
                 <outlet property="Square7Button" destination="wqL-6N-dzo" id="ge8-9u-DTj"/>
                 <outlet property="Square8Button" destination="5oJ-IG-Rbw" id="nUo-lK-v9M"/>
                 <outlet property="Square9Button" destination="98z-PQ-N63" id="dZT-m3-7Me"/>
+                <outlet property="logoutButton" destination="vfK-0I-lhD" id="vP5-06-8Oc"/>
+                <outlet property="networkPlay" destination="juh-bp-PP1" id="tXL-eJ-QrW"/>
+                <outlet property="newGameButton" destination="qSP-P1-uv7" id="FjN-6e-9tm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,6 +43,16 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYi-hH-8b3">
                     <rect key="frame" x="20" y="43" width="560" height="555"/>
                     <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgl-eZ-ME1">
+                            <rect key="frame" x="0.0" y="-3" width="182" height="179"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                            <state key="normal">
+                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="GridButtonPushed:" destination="-1" eventType="touchUpInside" id="bOm-qv-dGY"/>
+                            </connections>
+                        </button>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6c-yA-Xo4">
                             <rect key="frame" x="187" y="0.0" width="187" height="179"/>
                             <fontDescription key="fontDescription" type="system" pointSize="60"/>
@@ -162,16 +175,6 @@
                                 <constraint firstAttribute="height" constant="5" id="mgk-y5-0cw"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgl-eZ-ME1">
-                            <rect key="frame" x="0.0" y="-3" width="182" height="179"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                            <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="GridButtonPushed:" destination="-1" eventType="touchUpInside" id="bOm-qv-dGY"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="wqL-6N-dzo" firstAttribute="width" secondItem="qYi-hH-8b3" secondAttribute="width" multiplier="0.333" id="09T-Bw-3Cz"/>
@@ -414,16 +417,25 @@
                         </mask>
                     </variation>
                     <connections>
-                        <action selector="NewGameCreated:" destination="-1" eventType="touchUpInside" id="NUC-Cx-Bju"/>
+                        <action selector="newGameButton:" destination="-1" eventType="touchUpInside" id="xaK-B2-j2L"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfK-0I-lhD">
-                    <rect key="frame" x="63" y="560" width="66" height="30"/>
+                    <rect key="frame" x="20" y="560" width="161" height="30"/>
                     <state key="normal" title="Logout">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="logoutButtonTapped:" destination="-1" eventType="touchUpInside" id="q3c-kj-a3I"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juh-bp-PP1">
+                    <rect key="frame" x="14" y="8" width="122" height="30"/>
+                    <state key="normal" title="Network Play">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="networkPlayTapped:" destination="-1" eventType="touchUpInside" id="ofq-v3-w6E"/>
                     </connections>
                 </button>
             </subviews>
