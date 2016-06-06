@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+class ClosureExperiment {
+    
+    init() {
+        self.thisIsAFunction("the string variable", withAClosure:self.anotherFunction)
+        self.anotherFunction()
+    }
+    
+    func thisIsAFunction(withAInputVariable:String, withAClosure:() -> ()) {
+        print("thisIsAFunction is executing \(withAInputVariable)")
+        withAClosure() //this function will be executed when this line occurs
+    }
+    
+    func anotherFunction() {
+        print("another function is executing")
+    }
+    
+}
