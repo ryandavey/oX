@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistrationViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
-                <outlet property="emailField" destination="YXe-da-q3o" id="SRV-V6-RjS"/>
+                <outlet property="emailField" destination="QEN-1D-D9k" id="dW5-B2-pA7"/>
                 <outlet property="passwordField" destination="a6Z-4Y-5hp" id="tp1-KR-wv4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,45 +18,55 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a6Z-4Y-5hp">
-                    <rect key="frame" x="24" y="355" width="552" height="30"/>
+                    <rect key="frame" x="24" y="125" width="552" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="1cw-w2-Oow"/>
+                        <constraint firstAttribute="height" constant="30" id="4He-Vh-TtC"/>
+                        <constraint firstAttribute="width" constant="552" id="FBp-TT-oPG"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Ke0-a5-ouk"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="552" id="qnL-ne-oPD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="4He-Vh-TtC"/>
+                            <exclude reference="FBp-TT-oPG"/>
+                            <exclude reference="Ke0-a5-ouk"/>
+                            <exclude reference="qnL-ne-oPD"/>
+                        </mask>
+                    </variation>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QEN-1D-D9k" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
+                    <rect key="frame" x="24" y="60" width="552" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="MbE-U9-Rua"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZm-HS-lNN">
-                    <rect key="frame" x="271" y="420" width="57" height="30"/>
+                    <rect key="frame" x="271.5" y="183" width="57" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="57" id="RfW-IH-4eB"/>
+                        <constraint firstAttribute="height" constant="30" id="olN-6j-hn0"/>
+                    </constraints>
                     <state key="normal" title="Register"/>
                     <connections>
                         <action selector="registrationButtonTapped:" destination="-1" eventType="touchUpInside" id="mwf-fz-nEn"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YXe-da-q3o" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
-                    <rect key="frame" x="24" y="285" width="552" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="YXe-da-q3o" secondAttribute="bottom" constant="285" id="4LZ-7N-bTY"/>
-                <constraint firstItem="a6Z-4Y-5hp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4f5-mh-LRS"/>
-                <constraint firstItem="a6Z-4Y-5hp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6NI-9y-0aD"/>
-                <constraint firstItem="a6Z-4Y-5hp" firstAttribute="top" secondItem="YXe-da-q3o" secondAttribute="bottom" constant="40" id="6Tp-Hh-CjI"/>
-                <constraint firstItem="YXe-da-q3o" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="IPB-7v-qHO"/>
-                <constraint firstItem="KZm-HS-lNN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="271" id="IVv-mb-vVT"/>
-                <constraint firstItem="a6Z-4Y-5hp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="355" id="IW7-AD-CXy"/>
-                <constraint firstAttribute="bottom" secondItem="a6Z-4Y-5hp" secondAttribute="bottom" constant="215" id="LMR-01-mYl"/>
-                <constraint firstAttribute="trailing" secondItem="KZm-HS-lNN" secondAttribute="trailing" constant="272" id="MsI-64-Jdo"/>
-                <constraint firstItem="YXe-da-q3o" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="SEM-fb-TT7"/>
-                <constraint firstItem="YXe-da-q3o" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UIy-Mx-wE7"/>
-                <constraint firstItem="KZm-HS-lNN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UtM-Ce-QpI"/>
-                <constraint firstItem="a6Z-4Y-5hp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="YbT-CE-S3C"/>
-                <constraint firstItem="KZm-HS-lNN" firstAttribute="top" secondItem="a6Z-4Y-5hp" secondAttribute="bottom" constant="35" id="biy-Lr-7Vj"/>
-                <constraint firstAttribute="bottom" secondItem="KZm-HS-lNN" secondAttribute="bottom" constant="150" id="cOn-oq-cvu"/>
-                <constraint firstItem="YXe-da-q3o" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="d4z-Mc-cdh"/>
-                <constraint firstItem="KZm-HS-lNN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="420" id="dTz-Vy-1mn"/>
-                <constraint firstAttribute="trailing" secondItem="YXe-da-q3o" secondAttribute="trailing" constant="24" id="mxx-y1-y7x"/>
-                <constraint firstAttribute="trailing" secondItem="a6Z-4Y-5hp" secondAttribute="trailing" constant="24" id="tTz-OW-mwX"/>
-                <constraint firstItem="YXe-da-q3o" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="285" id="xdC-62-kvE"/>
+                <constraint firstItem="KZm-HS-lNN" firstAttribute="top" secondItem="a6Z-4Y-5hp" secondAttribute="bottom" constant="28" id="Ox0-zE-GEI"/>
+                <constraint firstItem="a6Z-4Y-5hp" firstAttribute="top" secondItem="QEN-1D-D9k" secondAttribute="bottom" constant="35" id="RDf-gW-g6y"/>
+                <constraint firstItem="KZm-HS-lNN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UPc-Ez-Zr5"/>
+                <constraint firstAttribute="trailing" secondItem="QEN-1D-D9k" secondAttribute="trailing" constant="24" id="Y3q-1M-MIk"/>
+                <constraint firstAttribute="trailing" secondItem="a6Z-4Y-5hp" secondAttribute="trailing" constant="24" id="fxf-Mz-ejI"/>
+                <constraint firstItem="a6Z-4Y-5hp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="hTB-xt-ejM"/>
+                <constraint firstItem="QEN-1D-D9k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="lB9-Ny-oaR"/>
+                <constraint firstItem="QEN-1D-D9k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="zfH-7a-3Kk"/>
             </constraints>
         </view>
     </objects>

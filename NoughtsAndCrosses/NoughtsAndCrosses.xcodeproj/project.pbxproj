@@ -12,7 +12,6 @@
 		42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D61CD765670070326E /* LaunchScreen.storyboard */; };
 		42D447E31CD765680070326E /* NoughtsAndCrossesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447E21CD765680070326E /* NoughtsAndCrossesTests.swift */; };
 		42D447EE1CD765680070326E /* NoughtsAndCrossesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */; };
-		D9FDBD6D1CFCDFF000A7F6DF /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDBD6C1CFCDFF000A7F6DF /* OXGame.swift */; };
 		D9FDBE031CFE32AA00A7F6DF /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDBE011CFE32AA00A7F6DF /* LandingViewController.swift */; };
 		D9FDBE041CFE32AA00A7F6DF /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9FDBE021CFE32AA00A7F6DF /* LandingViewController.xib */; };
 		D9FDBE071CFE330900A7F6DF /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDBE051CFE330900A7F6DF /* RegistrationViewController.swift */; };
@@ -73,7 +72,6 @@
 		433FEEDE49898B2DC9B1EFB5 /* Pods-NoughtsAndCrosses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrosses.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses.debug.xcconfig"; sourceTree = "<group>"; };
 		A5BB12FF354F1C70F09A2979 /* Pods_NoughtsAndCrossesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoughtsAndCrossesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8DBD50EB487C8B068FEA713 /* Pods-NoughtsAndCrosses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrosses.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses.release.xcconfig"; sourceTree = "<group>"; };
-		D9FDBD6C1CFCDFF000A7F6DF /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		D9FDBE011CFE32AA00A7F6DF /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		D9FDBE021CFE32AA00A7F6DF /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
 		D9FDBE051CFE330900A7F6DF /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 				42D447CD1CD765670070326E /* AppDelegate.swift */,
 				D9FDBE131CFEE54A00A7F6DF /* EmailValidatedTextField.swift */,
 				D9FDBE301D056FF100A7F6DF /* ClosureExperiment.swift */,
-				D9FDBE321D057D1200A7F6DF /* WebServices.swift */,
 				D9FDBE341D0597F700A7F6DF /* UIViewControllerExtensions.swift */,
 			);
 			path = NoughtsAndCrosses;
@@ -242,9 +239,9 @@
 		D9FDBE2A1D0189FB00A7F6DF /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D9FDBD6C1CFCDFF000A7F6DF /* OXGame.swift */,
-				D9FDBE111CFE33BF00A7F6DF /* UserController.swift */,
 				D9FDBE2C1D01C5FE00A7F6DF /* OXGameController.swift */,
+				D9FDBE111CFE33BF00A7F6DF /* UserController.swift */,
+				D9FDBE321D057D1200A7F6DF /* WebServices.swift */,
 			);
 			name = ModelControllers;
 			sourceTree = "<group>";
@@ -537,7 +534,6 @@
 				D9FDBE331D057D1200A7F6DF /* WebServices.swift in Sources */,
 				D9FDBE1A1CFF56C100A7F6DF /* EasterEggViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
-				D9FDBD6D1CFCDFF000A7F6DF /* OXGame.swift in Sources */,
 				D9FDBE031CFE32AA00A7F6DF /* LandingViewController.swift in Sources */,
 				D9FDBE351D0597F700A7F6DF /* UIViewControllerExtensions.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,

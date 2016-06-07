@@ -23,14 +23,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
         
+        
+        let loggedInViewController = BoardViewController(nibName: "BoardViewController", bundle:nil)
+        loggedInNavigationController = UINavigationController(rootViewController: loggedInViewController)
+        
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle:nil)
+        authorisationNavigationController = UINavigationController(rootViewController:landingViewController)
+        
+        
         if let loggedIn = userIsLoggedIn {
-            let loggedInViewController = BoardViewController(nibName: "BoardViewController", bundle:nil)
-            loggedInNavigationController = UINavigationController(rootViewController: loggedInViewController)
+            
             self.window?.rootViewController = self.loggedInNavigationController
             //self.navigationController
         } else {
-            let landingViewController = LandingViewController(nibName: "LandingViewController", bundle:nil)
-            authorisationNavigationController = UINavigationController(rootViewController:landingViewController)
+            
             self.window?.rootViewController = self.authorisationNavigationController
         }
         

@@ -17,6 +17,8 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var buttons: [UIButton] = []
     
+    var currentGame = OXGame()
+    
     let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewWillAppear(animated: Bool) {
@@ -54,6 +56,8 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var Square8Button: UIButton!
     @IBOutlet weak var Square9Button: UIButton!
     
+    @IBOutlet weak var newGameButton: UIButton!
+    
     
     
     // Outlet for network play button
@@ -69,65 +73,71 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     // Outlets for grid buttons
     @IBAction func GridButtonPushed(sender: AnyObject) {
         //print(OXGameController.sharedInstance.getCurrentGame()!.whosTurn())
-        if OXGameController.sharedInstance.getCurrentGame()?.board[sender.tag] == CellType.EMPTY {
-        let celltype = OXGameController.sharedInstance.playMove(sender.tag)
-        sender.setTitle(String(celltype), forState: .Normal)
+        if (currentGame.board[sender.tag] == CellType.EMPTY) {
+            
+            
+            let celltype = currentGame.playMove(sender.tag)
+            sender.setTitle(String(celltype), forState: .Normal)
 //        print(celltype)
 //        print(sender.setTitle(String(celltype), forState: .Normal))
         // gameState stores the state of the game
-        let gameState = OXGameController.sharedInstance.getCurrentGame()?.state()
+            let gameState = currentGame.state()
         // game resets the game once a winner has been declared
-        var game = 0
+            var game = 0
+            
         
-        // checks if the player who last made the turn won, or if the game ended in a tie/is still ongoing
-        if gameState == OXGameState.complete_someone_won {
-            print("Congratulations " + String(OXGameController.sharedInstance.getCurrentGame()?.typeIndex(sender.tag)) + ", you won!")
-            game += 1
-            if game == 1 {
+            // checks if the player who last made the turn won, or if the game ended in a tie/is still ongoing
+            if (gameState == OXGameState.complete_someone_won) {
+                print("Congratulations " + String(currentGame) + ", you won!")
+                game += 1
+                if game == 1 {
+                    self.restartGame()
+                }
+            } else if gameState == OXGameState.complete_no_one_won {
+                print("The game was tied")
                 self.restartGame()
-            }
-        } else if gameState == OXGameState.complete_no_one_won {
-            print("The game was tied")
-            self.restartGame()
-        } else {
-            print("game still ongoing")
-            if (networkGame){
-                let seconds = 0.5
-                let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-                let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-                
-                dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            } else {
+                print("game still ongoing")
+                if (networkGame){
+    //                let seconds = 0.5
+    //                let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+    //                let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+    //                
+    //                dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+    //                    
+    //                    // here code perfomed with delay
+    //                    let (celltype, index) = OXGameController.sharedInstance.playRandomMove()!
+    //                    self.buttons[index].setTitle(String(celltype), forState: .Normal)
+    //                }
+    //                    print(celltype)
+    //                    print(String(self.buttons[index].setTitle(String(celltype), forState: .Normal)))
+
                     
-                    // here code perfomed with delay
-                    let (celltype, index) = OXGameController.sharedInstance.playRandomMove()!
-                    self.buttons[index].setTitle(String(celltype), forState: .Normal)
-//                    print(celltype)
-//                    print(String(self.buttons[index].setTitle(String(celltype), forState: .Normal)))
-                })
-                
-//                sender.setTitle(String(OXGameController.sharedInstance.getCurrentGame()!.whosTurn()), forState: .Normal)
-                
-//            var buttons: [UIButton] = [Square1Button, Square2Button, Square3Button, Square4Button, Square5Button, Square6Button, Square6Button, Square7Button, Square8Button, Square9Button]
-//            let (celltype, index) = OXGameController.sharedInstance.playRandomMove()!
-//            OXGameController.sharedInstance.getCurrentGame()!.playMove(index)
-//            sender.setTitle(String(buttons[index]), forState: .Normal)
+    //                sender.setTitle(String(OXGameController.sharedInstance.getCurrentGame()!.whosTurn()), forState: .Normal)
+                    
+    //            var buttons: [UIButton] = [Square1Button, Square2Button, Square3Button, Square4Button, Square5Button, Square6Button, Square6Button, Square7Button, Square8Button, Square9Button]
+    //            let (celltype, index) = OXGameController.sharedInstance.playRandomMove()!
+    //            OXGameController.sharedInstance.getCurrentGame()!.playMove(index)
+    //            sender.setTitle(String(buttons[index]), forState: .Normal)
+                }
             }
+        } else {
+            return
         }
     }
-}
 
+    //func playMoveComplete(game:)
+    
     // New Game button is pressed
     @IBAction func newGameButton(sender: UIButton) {
-        restartGame()
+        self.restartGame()
     }
-    
-    @IBOutlet weak var newGameButton: UIButton!
-   
+
     
     // function that restarts game and sets the individual squares to blank
     func restartGame(){
-        OXGameController.sharedInstance.getCurrentGame()?.reset()
-        OXGameController.sharedInstance.finishCurrentGame()
+        currentGame.reset()
+        //currentGame.finishCurrentGame()
         Square1Button.setTitle("", forState: .Normal)
         Square2Button.setTitle("", forState: .Normal)
         Square3Button.setTitle("", forState: .Normal)
@@ -138,7 +148,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         Square8Button.setTitle("", forState: .Normal)
         Square9Button.setTitle("", forState: .Normal)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -147,12 +157,25 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
          //create an instance of UIRotationGestureRecognizer
         let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: Selector("handleRotation:"))
         self.BoardView.addGestureRecognizer(rotation)
+        self.updateUI()
     }
-    
+
+    func updateUI() {
+        for view in BoardView.subviews {
+            if let button = view as? UIButton {
+                button.setTitle(self.currentGame.board[button.tag].rawValue, forState: UIControlState.Normal)
+            }
+        }
+        if (networkGame) {
+            self.logoutButton.setTitle("Cancel Game", forState: .Normal)
+            
+        }
+    }
     
     func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
         
         self.BoardView.transform = CGAffineTransformMakeRotation(sender!.rotation + lastSnap)
+        
         if (sender!.state == UIGestureRecognizerState.Ended) {
             print("rotation \(sender!.rotation)")
             if (sender!.rotation > CGFloat(0)) {
@@ -160,17 +183,14 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                     self.BoardView.transform = CGAffineTransformMakeRotation(CGFloat(0))})
                 print("clockwise rotation detected")
             }
-            else {
+        }
+        else {
                 UIView.animateWithDuration(NSTimeInterval(3), animations: {
                     self.BoardView.transform = CGAffineTransformMakeRotation(CGFloat(0))})
                 print("counterclockwise rotation detected")
-            }
         }
     }
-    
-    
-    
-}
+
 //            if (sender!.rotation < CGFLoat(M_PI/4) {
 //            // snap action
 //            UIView.animateWithDuration(NSTimeInterval(3), animations: {
@@ -180,3 +200,5 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
 //    func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
 //        print("pinch detected")
 //    }
+
+}

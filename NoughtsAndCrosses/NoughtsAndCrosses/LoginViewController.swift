@@ -20,7 +20,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         emailField.delegate = self
         passwordField.delegate = self
-        userInputTextField.delegate = self
         // Do any additional setup after loading the view.
         
     }
@@ -32,18 +31,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if !(emailField.validate()) {
 
-            let (failure_message, user) = UserController.sharedInstance.loginUser(email!,suppliedPassword:password!,presentingViewController: self, viewControllerCompletionFunction:(User?,String?))
+            UserController.sharedInstance.loginUser(email!,password:password!,presentingViewController: self, viewControllerCompletionFunction:{(user,message) in self.loginComplete(user, message:message)})
+        }
+    }
+    
+    func loginComplete(user: User?, message: String?){
         if let _ = user {
             print("User logged in ")
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
             appDelegate.navigateToLoggedInNavigationController()
-            
+
         }
-        else if failure_message != nil {
-            print(failure_message)
+        else if message != nil {
+            print(message)
         }
-    }
     }
     
         

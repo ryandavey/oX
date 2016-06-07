@@ -16,14 +16,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4t-Mh-K2Y">
-                    <rect key="frame" x="271" y="337" width="57" height="30"/>
+                    <rect key="frame" x="271" y="180" width="57" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Twg-3E-jl4"/>
+                        <constraint firstAttribute="width" constant="57" id="jmo-gY-qdZ"/>
+                    </constraints>
                     <state key="normal" title="Register"/>
                     <connections>
                         <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="L97-Ss-ui8"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPb-d2-XGq">
-                    <rect key="frame" x="281" y="285" width="38" height="30"/>
+                    <rect key="frame" x="281" y="100" width="38" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="38" id="dYe-CO-3Ut"/>
+                        <constraint firstAttribute="height" constant="30" id="fSf-Rf-GKK"/>
+                    </constraints>
                     <state key="normal" title="Login"/>
                     <connections>
                         <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="hdZ-cx-UqG"/>
@@ -36,11 +44,25 @@
                 <constraint firstAttribute="trailing" secondItem="o4t-Mh-K2Y" secondAttribute="trailing" constant="272" id="MYy-R8-OpY"/>
                 <constraint firstItem="fPb-d2-XGq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RtI-m3-6Qc"/>
                 <constraint firstItem="o4t-Mh-K2Y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UUN-0X-Z0U"/>
+                <constraint firstItem="fPb-d2-XGq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="W9l-Tz-315"/>
                 <constraint firstItem="fPb-d2-XGq" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="alS-g5-vUI"/>
                 <constraint firstItem="o4t-Mh-K2Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="271" id="dbO-Pr-xd6"/>
+                <constraint firstItem="o4t-Mh-K2Y" firstAttribute="top" secondItem="fPb-d2-XGq" secondAttribute="bottom" constant="50" id="epJ-dX-g3B"/>
+                <constraint firstItem="fPb-d2-XGq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="f5d-MB-aYu"/>
                 <constraint firstItem="o4t-Mh-K2Y" firstAttribute="top" secondItem="fPb-d2-XGq" secondAttribute="bottom" constant="22" id="fKe-ZO-bf4"/>
                 <constraint firstAttribute="trailing" secondItem="fPb-d2-XGq" secondAttribute="trailing" constant="281" id="qoa-gd-F64"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="1HE-n3-DRO"/>
+                    <exclude reference="W9l-Tz-315"/>
+                    <exclude reference="alS-g5-vUI"/>
+                    <exclude reference="qoa-gd-F64"/>
+                    <exclude reference="MYy-R8-OpY"/>
+                    <exclude reference="dbO-Pr-xd6"/>
+                    <exclude reference="fKe-ZO-bf4"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>
