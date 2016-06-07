@@ -20,9 +20,9 @@
                     <rect key="frame" x="0.0" y="50" width="375" height="512"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThC-98-xzR">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThC-98-xzR">
                     <rect key="frame" x="0.0" y="565" width="375" height="109"/>
-                    <color key="backgroundColor" red="0.96224640052356025" green="0.0038797939975568777" blue="0.38551435266905365" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.86275216809999999" green="0.37827626619999999" blue="0.19797570179999999" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                     <state key="normal" title="New Network Game">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,6 +41,7 @@
                 <constraint firstAttribute="bottom" secondItem="ThC-98-xzR" secondAttribute="bottom" constant="-7" id="S7P-Ii-iDY"/>
                 <constraint firstItem="ThC-98-xzR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cat-Xe-OFS"/>
                 <constraint firstAttribute="bottom" secondItem="zZZ-Zk-04A" secondAttribute="bottom" constant="105" id="fpK-dX-wJ3"/>
+                <constraint firstItem="ThC-98-xzR" firstAttribute="top" secondItem="zZZ-Zk-04A" secondAttribute="bottom" constant="3" id="uAX-6A-6ue"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="199.5" y="328.5"/>

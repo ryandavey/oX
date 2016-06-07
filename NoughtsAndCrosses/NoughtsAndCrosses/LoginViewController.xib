@@ -17,9 +17,12 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATz-Jr-kIS">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATz-Jr-kIS">
                     <rect key="frame" x="281" y="238" width="38" height="30"/>
-                    <state key="normal" title="Login"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" red="0.86275216809999999" green="0.37827626619999999" blue="0.19797570179999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="cnk-7w-i84"/>
                     </connections>
@@ -35,7 +38,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.4317135017" green="0.437029836" blue="0.43110245279999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="ATz-Jr-kIS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5xA-9r-bNJ"/>
                 <constraint firstAttribute="trailing" secondItem="KEj-Lk-Udg" secondAttribute="trailing" constant="8" id="CiP-RL-6lq"/>

@@ -17,28 +17,38 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4t-Mh-K2Y">
                     <rect key="frame" x="271" y="180" width="57" height="30"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="57" id="EuB-v9-2OG"/>
                         <constraint firstAttribute="height" constant="30" id="Twg-3E-jl4"/>
                         <constraint firstAttribute="width" constant="57" id="jmo-gY-qdZ"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="wb6-Mo-fUx"/>
                     </constraints>
-                    <state key="normal" title="Register"/>
+                    <state key="normal" title="Register">
+                        <color key="titleColor" red="0.86275216809999999" green="0.37827626619999999" blue="0.19797570179999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="L97-Ss-ui8"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPb-d2-XGq">
                     <rect key="frame" x="281" y="100" width="38" height="30"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="38" id="JpP-62-bgt"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="VcF-il-MGb"/>
                         <constraint firstAttribute="width" constant="38" id="dYe-CO-3Ut"/>
                         <constraint firstAttribute="height" constant="30" id="fSf-Rf-GKK"/>
                     </constraints>
-                    <state key="normal" title="Login"/>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" red="0.86275216809999999" green="0.37827626619999999" blue="0.19797570179999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="hdZ-cx-UqG"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.4317135017" green="0.437029836" blue="0.43110245279999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="fPb-d2-XGq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="281" id="1HE-n3-DRO"/>
                 <constraint firstAttribute="trailing" secondItem="o4t-Mh-K2Y" secondAttribute="trailing" constant="272" id="MYy-R8-OpY"/>
