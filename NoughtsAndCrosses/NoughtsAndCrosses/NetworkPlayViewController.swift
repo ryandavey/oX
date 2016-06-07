@@ -46,7 +46,6 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         var gameRowSelected = self.gamesList[indexPath.row]
         
         
-        
         OXGameController.sharedInstance.acceptGame(gameRowSelected.gameId!,presentingViewController: self,viewControllerCompletionFunction: {(game, message) in self.acceptGameComplete(game,message:message)})
         print("did select row \(indexPath.row)")
     }

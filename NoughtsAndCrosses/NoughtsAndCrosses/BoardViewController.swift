@@ -27,8 +27,12 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
             logoutButton.setTitle("Cancel Game", forState: .Normal)
             newGameButton.hidden = true
             networkPlay.hidden = true
+            refreshButton.hidden = false
+        } else {
+            refreshButton.hidden = true
         }
     }
+    @IBOutlet weak var refreshButton: UIButton!
     
     @IBAction func logoutButtonTapped(sender: AnyObject) {
         if (networkGame) {
@@ -58,15 +62,26 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var newGameButton: UIButton!
     
-    
-    
     // Outlet for network play button
     @IBOutlet weak var networkPlay: UIButton!
+    
+    //  Refresh button is pushed
+    @IBAction func refreshButtonTapped(sender: AnyObject) {
+        OXGameController.sharedInstance.getGame(self.currentGame.gameId!, viewControllerCompletionFunction: {(game,message) in self.gameUpdateReceived(game,message:message)})
+    }
+    
+    func gameUpdateReceived(game:OXGame?, message:String?) {
+        if let gameReceived = game {
+            self.currentGame = gameReceived
+        }
+        self.updateUI()
+    }
     
     // Changes to NetworkPlay View Controller
     @IBAction func networkPlayTapped(sender: UIButton) {
         let npc = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
         self.navigationController?.navigationBarHidden = false
+        self.refreshButton.hidden = false
         self.navigationController?.pushViewController(npc, animated: true)
     }   
     
@@ -75,50 +90,32 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         //print(OXGameController.sharedInstance.getCurrentGame()!.whosTurn())
         if (currentGame.board[sender.tag] == CellType.EMPTY) {
             
-            
-            let celltype = currentGame.playMove(sender.tag)
-            sender.setTitle(String(celltype), forState: .Normal)
-//        print(celltype)
-//        print(sender.setTitle(String(celltype), forState: .Normal))
-        // gameState stores the state of the game
-            let gameState = currentGame.state()
-        // game resets the game once a winner has been declared
-            var game = 0
-            
-        
-            // checks if the player who last made the turn won, or if the game ended in a tie/is still ongoing
-            if (gameState == OXGameState.complete_someone_won) {
-                print("Congratulations " + String(currentGame) + ", you won!")
-                game += 1
-                if game == 1 {
+            if networkGame {
+                currentGame.playMove(sender.tag)
+                OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game,message) in self.playMoveComplete(game,message:message)})
+            }
+            else {
+                let celltype = currentGame.playMove(sender.tag)
+                sender.setTitle(String(celltype), forState: .Normal)
+                // gameState stores the state of the game
+                let gameState = currentGame.state()
+                // game resets the game once a winner has been declared
+                var game = 0
+                
+                
+                // checks if the player who last made the turn won, or if the game ended in a tie/is still ongoing
+                
+                if (gameState == OXGameState.complete_someone_won) {
+                    print("Congratulations " + String(currentGame) + ", you won!")
+                    game += 1
+                    if game == 1 {
+                        self.restartGame()
+                    }
+                } else if gameState == OXGameState.complete_no_one_won {
+                    print("The game was tied")
                     self.restartGame()
-                }
-            } else if gameState == OXGameState.complete_no_one_won {
-                print("The game was tied")
-                self.restartGame()
-            } else {
-                print("game still ongoing")
-                if (networkGame){
-    //                let seconds = 0.5
-    //                let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-    //                let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-    //                
-    //                dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-    //                    
-    //                    // here code perfomed with delay
-    //                    let (celltype, index) = OXGameController.sharedInstance.playRandomMove()!
-    //                    self.buttons[index].setTitle(String(celltype), forState: .Normal)
-    //                }
-    //                    print(celltype)
-    //                    print(String(self.buttons[index].setTitle(String(celltype), forState: .Normal)))
-
-                    
-    //                sender.setTitle(String(OXGameController.sharedInstance.getCurrentGame()!.whosTurn()), forState: .Normal)
-                    
-    //            var buttons: [UIButton] = [Square1Button, Square2Button, Square3Button, Square4Button, Square5Button, Square6Button, Square6Button, Square7Button, Square8Button, Square9Button]
-    //            let (celltype, index) = OXGameController.sharedInstance.playRandomMove()!
-    //            OXGameController.sharedInstance.getCurrentGame()!.playMove(index)
-    //            sender.setTitle(String(buttons[index]), forState: .Normal)
+                } else {
+                    print("game still ongoing")
                 }
             }
         } else {
@@ -126,7 +123,15 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
 
-    //func playMoveComplete(game:)
+    func playMoveComplete(game:OXGame?, message: String?) {
+        if let game = game {
+            currentGame = game
+            updateUI()
+        }
+        else {
+            print("move didnt work")
+        }
+    }
     
     // New Game button is pressed
     @IBAction func newGameButton(sender: UIButton) {
@@ -168,7 +173,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         if (networkGame) {
             self.logoutButton.setTitle("Cancel Game", forState: .Normal)
-            
+            //self.
         }
     }
     
@@ -190,15 +195,4 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                 print("counterclockwise rotation detected")
         }
     }
-
-//            if (sender!.rotation < CGFLoat(M_PI/4) {
-//            // snap action
-//            UIView.animateWithDuration(NSTimeInterval(3), animations: {
-//            self.BoardView.transform = CGAffineTransformMakeRotation(CGFloat(0))
-//        let pinch: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: Selector("handlePinch:"))
-//        self.BoardView.addGestureRecognizer(pinch)
-//    func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
-//        print("pinch detected")
-//    }
-
 }

@@ -29,7 +29,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let email = emailField.text
         let password = passwordField.text
         
-        if !(emailField.validate()) {
+        if (emailField.validate()) {
 
             UserController.sharedInstance.loginUser(email!,password:password!,presentingViewController: self, viewControllerCompletionFunction:{(user,message) in self.loginComplete(user, message:message)})
         }

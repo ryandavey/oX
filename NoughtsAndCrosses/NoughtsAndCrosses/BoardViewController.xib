@@ -22,6 +22,7 @@
                 <outlet property="logoutButton" destination="vfK-0I-lhD" id="vP5-06-8Oc"/>
                 <outlet property="networkPlay" destination="juh-bp-PP1" id="tXL-eJ-QrW"/>
                 <outlet property="newGameButton" destination="qSP-P1-uv7" id="FjN-6e-9tm"/>
+                <outlet property="refreshButton" destination="FzS-4L-SRR" id="5Zz-94-KkK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -481,10 +482,20 @@
                         <action selector="logoutButtonTapped:" destination="-1" eventType="touchUpInside" id="q3c-kj-a3I"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzS-4L-SRR">
+                    <rect key="frame" x="463" y="5" width="53" height="30"/>
+                    <state key="normal" title="Refresh">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="refreshButtonTapped:" destination="-1" eventType="touchUpInside" id="vDd-PF-zWa"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="width" secondItem="qYi-hH-8b3" secondAttribute="height" multiplier="115:115" constant="5" id="HaJ-BB-quF"/>
+                <constraint firstAttribute="trailing" secondItem="FzS-4L-SRR" secondAttribute="trailing" constant="150" id="JML-Lp-W8W"/>
                 <constraint firstAttribute="bottom" secondItem="qSP-P1-uv7" secondAttribute="bottom" id="Nne-tZ-nj8"/>
                 <constraint firstItem="k6O-si-s1J" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RNm-oP-Ohl"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="TEW-Or-WEp">
@@ -501,6 +512,7 @@
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="t2d-On-XYB">
                     <variation key="heightClass=regular" constant="20"/>
                 </constraint>
+                <constraint firstItem="FzS-4L-SRR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="5" id="u3x-mC-xur"/>
                 <constraint firstItem="qSP-P1-uv7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wYo-EN-HYZ"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
