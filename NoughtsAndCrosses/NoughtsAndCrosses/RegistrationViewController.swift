@@ -44,13 +44,10 @@ class RegistrationViewController: UIViewController {
             //registration failed
             let alert = UIAlertController(title:"Registration Failed", message:message!, preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: {
-                
-            })
+            self.presentViewController(alert, animated: true, completion: {})
             
         }
     }
-    
     // Action for Register button
     
     @IBAction func registrationButtonTapped(sender: UIButton) {
@@ -62,7 +59,7 @@ class RegistrationViewController: UIViewController {
             return
         }
             //new registration code
-            UserController.sharedInstance.registerUser(email!,password: password, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.registrationComplete(user,message:message)})
+            UserController.sharedInstance.registerUser(email!,password: password!, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.registrationComplete(user,message:message)})
         
     }
 

@@ -32,7 +32,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if !(emailField.validate()) {
 
-        let (failure_message, user) = UserController.sharedInstance.loginUser(email!,suppliedPassword:password!)
+            let (failure_message, user) = UserController.sharedInstance.loginUser(email!,suppliedPassword:password!,presentingViewController: self, viewControllerCompletionFunction:(User?,String?))
         if let _ = user {
             print("User logged in ")
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

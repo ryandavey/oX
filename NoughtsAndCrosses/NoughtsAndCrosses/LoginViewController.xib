@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
                 <outlet property="emailField" destination="KEj-Lk-Udg" id="S3Z-hY-Hsu"/>
                 <outlet property="passwordField" destination="4RI-DZ-xou" id="d28-Of-NIm"/>
-                <outlet property="userInputTextField" destination="gZj-qs-C3N" id="dh6-i6-HDB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,30 +17,37 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATz-Jr-kIS">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATz-Jr-kIS">
                     <rect key="frame" x="281" y="238" width="38" height="30"/>
                     <state key="normal" title="Login"/>
                     <connections>
                         <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="cnk-7w-i84"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KEj-Lk-Udg" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
-                    <rect key="frame" x="252" y="90" width="97" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4RI-DZ-xou">
+                    <rect key="frame" x="8" y="185" width="584" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="userfield" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gZj-qs-C3N">
-                    <rect key="frame" x="252" y="195" width="97" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4RI-DZ-xou">
-                    <rect key="frame" x="252" y="148" width="97" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KEj-Lk-Udg" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
+                    <rect key="frame" x="8" y="130" width="584" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ATz-Jr-kIS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5xA-9r-bNJ"/>
+                <constraint firstAttribute="trailing" secondItem="KEj-Lk-Udg" secondAttribute="trailing" constant="8" id="CiP-RL-6lq"/>
+                <constraint firstItem="KEj-Lk-Udg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KV4-Pc-5oo"/>
+                <constraint firstItem="KEj-Lk-Udg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="OFi-ot-Pvh"/>
+                <constraint firstItem="ATz-Jr-kIS" firstAttribute="top" secondItem="4RI-DZ-xou" secondAttribute="bottom" constant="23" id="QYI-KU-eE1"/>
+                <constraint firstItem="4RI-DZ-xou" firstAttribute="top" secondItem="KEj-Lk-Udg" secondAttribute="bottom" constant="25" id="eMX-14-qWD"/>
+                <constraint firstAttribute="bottom" secondItem="ATz-Jr-kIS" secondAttribute="bottom" constant="332" id="hHf-Mn-xjn"/>
+                <constraint firstAttribute="trailing" secondItem="4RI-DZ-xou" secondAttribute="trailing" constant="8" id="iuS-eu-jSM"/>
+                <constraint firstItem="4RI-DZ-xou" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pby-KF-hIe"/>
+                <constraint firstItem="4RI-DZ-xou" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="yJM-2j-Rwv"/>
+            </constraints>
         </view>
     </objects>
 </document>
