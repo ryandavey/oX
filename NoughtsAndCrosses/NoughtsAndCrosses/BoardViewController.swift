@@ -36,6 +36,17 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func logoutButtonTapped(sender: AnyObject) {
         if (networkGame) {
+            let network = NetworkPlayViewController()
+            newGameButton.setTitle("GAME CANCELLED", forState: .Normal)
+            
+            
+            OXGameController.sharedInstance.cancelGame(self.currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction:{(boolean, message) in
+                
+                print("hey")
+            
+            })
+            
+            
             self.navigationController?.popViewControllerAnimated(true)
         }
         else {
@@ -114,6 +125,9 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                 } else if gameState == OXGameState.complete_no_one_won {
                     print("The game was tied")
                     self.restartGame()
+                    if (networkGame) {
+                        newGameButton.setTitle("GAME TIED", forState: .Normal)
+                    }
                 } else {
                     print("game still ongoing")
                 }
@@ -173,7 +187,6 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         if (networkGame) {
             self.logoutButton.setTitle("Cancel Game", forState: .Normal)
-            //self.
         }
     }
     

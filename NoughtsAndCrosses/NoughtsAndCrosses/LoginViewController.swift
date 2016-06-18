@@ -24,7 +24,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
     @IBAction func loginButtonTapped(sender: UIButton) {
         let email = emailField.text
         let password = passwordField.text
